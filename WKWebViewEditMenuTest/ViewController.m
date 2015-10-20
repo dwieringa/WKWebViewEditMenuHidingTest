@@ -53,6 +53,8 @@
 -(void)menuDidShow
 {
     NSLog(@"MENU DID SHOW");
+    
+    // both approaches "work" here, but too late, so the menu flashes briefly (unacceptable)
 //    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
     [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 1, 1) inView:self.extraView];
 }
