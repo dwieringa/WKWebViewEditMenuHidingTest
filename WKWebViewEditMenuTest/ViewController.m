@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) WKWebView *webView;
+@property (weak, nonatomic) IBOutlet UIView *extraView;
 
 @end
 
@@ -43,12 +44,17 @@
     
     // this does not suppress the Edit Menu as people suggest on Stackoverflow
     [UIMenuController sharedMenuController].menuVisible = NO;
+    
+    // this doesn't seem to impact positioning...only in menuDidShow...so we get a flash
+    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 1, 1) inView:self.extraView];
+    
 }
 
 -(void)menuDidShow
 {
     NSLog(@"MENU DID SHOW");
 //    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
+    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 1, 1) inView:self.extraView];
 }
 
 -(void)menuWillHide
