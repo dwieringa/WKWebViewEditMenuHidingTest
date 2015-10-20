@@ -28,6 +28,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillShow:) name:UIMenuControllerWillShowMenuNotification object:[UIMenuController sharedMenuController]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidShow) name:UIMenuControllerDidShowMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillHide) name:UIMenuControllerWillHideMenuNotification object:[UIMenuController sharedMenuController]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide) name:UIMenuControllerDidHideMenuNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +48,17 @@
 -(void)menuDidShow
 {
     NSLog(@"MENU DID SHOW");
-    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
+//    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
+}
+
+-(void)menuWillHide
+{
+    NSLog(@"MENU WILL HIDE");
+}
+
+-(void)menuDidHide
+{
+    NSLog(@"MENU DID HIDE");
 }
 
 @end
