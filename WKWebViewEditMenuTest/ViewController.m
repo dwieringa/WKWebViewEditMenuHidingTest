@@ -33,6 +33,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide) name:UIMenuControllerDidHideMenuNotification object:nil];
 }
 
+- (BOOL)canResignFirstResponder {
+    return NO;
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
